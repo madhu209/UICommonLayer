@@ -28,7 +28,7 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/madhu209/UICommonLayer.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '13.0'
+  s.ios.deployment_target = '14.0'
 
   s.source_files = 'UICommonLayer/**/*.{h,m,swift,xib,storyboard}'
 
@@ -37,7 +37,7 @@ TODO: Add long description of the pod here.
   }
   s.swift_version = '5.0'
   s.platforms = {
-    "ios": "13.0"
+    "ios": "14.0"
   }
   
   # s.resource_bundles = {
