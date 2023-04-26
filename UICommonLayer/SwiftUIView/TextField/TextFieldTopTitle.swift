@@ -25,9 +25,7 @@ struct TextFieldTopTitle: View {
 //                                        .stroke(lineWidth: 1.0)
 //                                )
 
-            TextField(text: $textEditValue, prompt: Text(placeHolder)) {
-
-            }.padding(EdgeInsets(top: 7, leading: 10, bottom: 7, trailing: 10))
+            TextField(placeHolder, text: $textEditValue).padding(EdgeInsets(top: 7, leading: 10, bottom: 7, trailing: 10))
                 .background(Color.white)
                 .cornerRadius(5)
                 .overlay(
@@ -41,7 +39,7 @@ struct TextFieldTopTitle: View {
 
 struct TextFieldTopTitle_Previews: PreviewProvider {
     static var previews: some View {
-            TextFieldTopTitle(headerTitle: "Text Field Header", placeHolder: "Field Placeholder")
+        TextFieldTopTitle(headerTitle: "Text Field Header", placeHolder: "Field Placeholder", textEditValue: "")
                 .background(Color.blue)
     }
 }
