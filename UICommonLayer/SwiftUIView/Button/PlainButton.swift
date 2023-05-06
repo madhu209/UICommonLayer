@@ -7,10 +7,16 @@
 
 import SwiftUI
 
-struct PlainButton: View {
-    var btnTitle: String!
-    let action: () -> Void
-    var body: some View {
+public struct PlainButton: View {
+    private var btnTitle: String!
+    private let action: () -> Void
+
+    public init(btnTitle: String!, action: @escaping () -> Void) {
+        self.btnTitle = btnTitle
+        self.action = action
+    }
+    
+    public var body: some View {
         Button(action: action) {
             Text(btnTitle)
                 .foregroundColor(Color.yellow)

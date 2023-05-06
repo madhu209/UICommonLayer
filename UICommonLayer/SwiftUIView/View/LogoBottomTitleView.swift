@@ -7,11 +7,14 @@
 
 import SwiftUI
 
-struct LogoBottomTitleView: View {
+public struct LogoBottomTitleView: View {
+    private var bottomTitle: String = "View Title"
 
-    var bottomTitle: String = "View Title"
-
-    var body: some View {
+    public init(bottomTitle: String) {
+        self.bottomTitle = bottomTitle
+    }
+    
+    public var body: some View {
         VStack(spacing: 10) {
             Image("app_icon_120")
             Text(bottomTitle)

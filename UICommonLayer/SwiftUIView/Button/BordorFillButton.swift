@@ -7,16 +7,20 @@
 
 import SwiftUI
 
-struct BordorFillButton: View {
-    var btnTitle: String!
-    var cornerRadius: CGFloat = 0
-    let action: () -> Void
+public struct BordorFillButton: View {
+    private var btnTitle: String!
+    private var cornerRadius: CGFloat = 0
+    private let action: () -> Void
 
-    var body: some View {
+    public init(btnTitle: String!, cornerRadius: CGFloat, action: @escaping () -> Void) {
+        self.btnTitle = btnTitle
+        self.cornerRadius = cornerRadius
+        self.action = action
+    }
+
+    public var body: some View {
         Button(action: action) {
             Text(btnTitle)
-//                .padding([.top, .bottom], 5)
-//                .padding([.leading, .trailing], 15)
                 .foregroundColor(Color.yellow)
                 .frame(maxWidth: .infinity)
                 .frame(maxHeight: .infinity)
@@ -31,7 +35,7 @@ struct BordorFillButton: View {
 
 struct BordorButton_Previews: PreviewProvider {
     static var previews: some View {
-        BordorFillButton(btnTitle: "Bordor Color") {
+        BordorFillButton(btnTitle: "Bordor Color", cornerRadius: 5) {
             
         }
     }

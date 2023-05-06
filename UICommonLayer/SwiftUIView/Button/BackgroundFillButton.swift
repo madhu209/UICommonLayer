@@ -7,12 +7,18 @@
 
 import SwiftUI
 
-struct BackgroundFillButton: View {
-    var btnTitle: String!
-    var cornerRadius: CGFloat = 5
-    let action: () -> Void
+public struct BackgroundFillButton: View {
+    private var btnTitle: String!
+    private var cornerRadius: CGFloat = 5
+    private let action: () -> Void
 
-    var body: some View {
+    public init(btnTitle: String!, cornerRadius: CGFloat, action: @escaping () -> Void) {
+        self.btnTitle = btnTitle
+        self.cornerRadius = cornerRadius
+        self.action = action
+    }
+
+    public var body: some View {
 
         Button(action: action) {
             Text(btnTitle)
@@ -46,7 +52,7 @@ struct BackgroundFillButton: View {
 
 struct YellowButton_Previews: PreviewProvider {
     static var previews: some View {
-        BackgroundFillButton(btnTitle: "BUTTON") {
+        BackgroundFillButton(btnTitle: "BUTTON", cornerRadius: 5) {
             
         }
     }

@@ -8,22 +8,23 @@
 import Foundation
 import UIKit
 
-class CollectionViewModel<Cell: UICollectionViewCell, T>: NSObject, UICollectionViewDataSource {
-    var items: [T]!
+open class CollectionViewModel<Cell: UICollectionViewCell, T>: NSObject, UICollectionViewDataSource {
+
     var cellIdentifier: String!
+    var items: [T]!
     var configureCell: ((Cell, T) -> ()) = {_,_ in}
 
-    init(items: [T]!, cellIdentifier: String!, configureCell: @escaping (Cell, T) -> Void) {
+    public init(cellIdentifier: String!, items: [T]!, configureCell: @escaping (Cell, T) -> Void) {
         self.items = items
         self.cellIdentifier = cellIdentifier
         self.configureCell = configureCell
     }
 
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! Cell
         let item = items[indexPath.row]
         self.configureCell(cell, item)

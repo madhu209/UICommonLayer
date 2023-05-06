@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct BackgroundImageView: View {
-    var body: some View {
+public struct BackgroundImageView: View {
+    public init() { }
+    public var body: some View {
         Image("bg")
             .resizable()
             .aspectRatio(contentMode: .fill)
